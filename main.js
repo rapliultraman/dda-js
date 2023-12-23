@@ -35,7 +35,7 @@ let time = 0;
 function drawProjectile() {
   const initialVelocity = parseFloat(initialVelocityInput.value);
   const initialAngle = (parseFloat(initialAngleInput.value) / 180) * Math.PI;
-  const initialGravity = parseFloat(initialVelocityInput.value);
+  const initialGravity = parseFloat(initialGravityInput.value);
   
   const vx = initialVelocity * Math.cos(initialAngle);
   const vy = initialVelocity * Math.sin(initialAngle) - initialGravity * time;
@@ -55,5 +55,5 @@ function drawProjectile() {
   time += 0.1;
 }
 
-const interval = setInterval(drawProjectile, 50);
+const interval = setInterval(drawProjectile, 30);
 
