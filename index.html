@@ -1,22 +1,63 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projectile Motion Simulation</title>
-  </head>
-  <body>
-    <div class="slide-controller">
-      <p>Velocity: <span id="vOutput"></span>m/s</p>
-      <input type="range" min="0" max="100" value="50" class="slider" id="velocity">
-      <p>Angel: <span id="aOutput"></span>°</p>
-      <input type="range" min="0" max="90" value="50" class="slider" id="angel">
-      <p>Gravity: <span id="gOutput"></span>m/s²</p>
-      <input type="range" min="9.81" max="10.00" step="0.01" value="9.81" class="slider" id="gravity">
-    </div>
-    <canvas id="canvas"></canvas>
-    <script type="module" src="/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 7px;
+      overflow: hidden;
+    }
+
+    .focalPoint,
+    .mirroredFocalPoint {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      /* Set border-radius to create a circle */
+      position: absolute;
+      cursor: grab;
+      opacity: 0.5;
+    }
+
+    .focalPoint {
+      background-color: pink;
+      top: 300px;
+      left: 600px;
+    }
+
+    .mirroredFocalPoint {
+      background-color: lightblue;
+      top: 300px;
+      left: 600px;
+    }
+
+    .realObject {
+      width: 15px;
+      height: 15px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+      cursor: grab;
+      top: 300px;
+      left: 600px;
+      opacity: 0.5;
+    }
+    }
+  </style>
+  <title>Canvas Drawing</title>
+</head>
+
+<body>
+  <div>
+    <canvas id="canvas" width="1200" height="600" style="border: 1px solid black"></canvas>
+    <div id="mirroredFocalPoint" class="mirroredFocalPoint"></div>
+    <div id="focalPoint" class="focalPoint"></div>
+    <div id="realObject" class="realObject"></div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
 </html>
